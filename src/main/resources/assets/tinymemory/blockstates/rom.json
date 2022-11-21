@@ -1,5 +1,10 @@
 {
   "variants": {
-    "": { "model": "tinymemory:block/rom" }
+    "facing=up": {"model": "tinymemory:block/rom","x": 180},
+    "facing=north": {"model": "tinymemory:block/rom", "x": -90},
+    "facing=east": {"model": "tinymemory:block/rom", "x": 90, "y": -90},
+    "facing=south": {"model": "tinymemory:block/rom","x": 90},
+    "facing=west": {"model": "tinymemory:block/rom", "x": 90, "y": 90},
+    "facing=down": {"model": "tinymemory:block/rom"}
   }
 }

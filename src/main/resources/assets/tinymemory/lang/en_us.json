@@ -1,5 +1,10 @@
 
 {
+  "itemGroup.tinymemory": "Tiny Memory",
+  
   "block.tinymemory.rom" : "ROM",
-  "block.item.tinymemory.rom": "Read Only Memory WIP"
+  "block.tinymemory.memory_assembler" : "Memory Assembler",
+  "block.tinymemory.project_table" : "Project Table",
+  
+  "item.tinymemory.memory_blueprint": "Memory Blueprint"
 }
