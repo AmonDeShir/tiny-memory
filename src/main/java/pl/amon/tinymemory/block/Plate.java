@@ -36,7 +36,7 @@ public class Plate<Entity extends BlockEntity> extends RedstoneBlock<Entity> {
   }
 
   public Plate(BlockEntityCreator.Creator<Entity> creator, BlockEntityCreator.EntityTicker ticker) {
-    super(Block.Properties.of(Material.STONE), creator, ticker);
+    super(Block.Properties.of(Material.STONE).strength(2f), creator, ticker);
   }
 
   @Override

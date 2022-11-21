@@ -5,6 +5,6 @@ import net.minecraft.world.level.material.Material;
 
 public class ProjectTable extends Block {
   public ProjectTable() {
-    super(Block.Properties.of(Material.METAL));
+    super(Block.Properties.of(Material.METAL).strength(2f));
   }
 }
