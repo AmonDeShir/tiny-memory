@@ -7,7 +7,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import pl.amon.tinymemory.TinyMemory;
-import pl.amon.tinymemory.elements.*;
 
 @Mod.EventBusSubscriber(modid = TinyMemory.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup {
