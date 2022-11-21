@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "iii",
+    "iri",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_block" },
+    "i": { "item": "minecraft:iron_ingot" },
+    "r": { "item": "minecraft:redstone_block" }
+  },
+  "result": {
+    "item": "tinymemory:memory_assembler"
+  }
+}

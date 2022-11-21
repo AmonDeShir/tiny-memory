@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ipi",
+    "iri",
+    "###"
+  ],
+  "key": {
+    "#": { "item": "minecraft:iron_block" },
+    "i": { "item": "minecraft:iron_ingot" },
+    "r": { "item": "minecraft:redstone_block" },
+    "p": { "item": "tinyredstone:redstone_panel" }
+  },
+  "result": {
+    "item": "tinymemory:project_table"
+  }
+}
