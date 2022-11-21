@@ -1,10 +1,17 @@
 
 {
   "itemGroup.tinymemory": "Tiny Memory",
+  "message.tinymemory.press_shift_for_more_info": "Press SHIFT for more info",
   
   "block.tinymemory.rom" : "ROM",
+  "message.block.tinymemory.rom": "Read Only Memory Module. It accept io signals from Tiny Redstone plates. You can create it in the Memory Assembler",
+
   "block.tinymemory.memory_assembler" : "Memory Assembler",
+  "message.block.tinymemory.memory_assembler": "Machine that creates an ROM from your Blueprint",
+
   "block.tinymemory.project_table" : "Project Table",
+  "message.block.tinymemory.project_table": "Machine that can be use to edit an Memory Blueprint",
   
-  "item.tinymemory.memory_blueprint": "Memory Blueprint"
+  "item.tinymemory.memory_blueprint": "Memory Blueprint",
+  "message.item.tinymemory.memory_blueprint": "Paper with an memory design. Can be edited in the Project Table"
 }

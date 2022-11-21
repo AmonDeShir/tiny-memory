@@ -2,7 +2,6 @@ package pl.amon.tinymemory.setup;
 
 import java.util.function.Supplier;
 
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -19,6 +18,7 @@ import pl.amon.tinymemory.block.Plate;
 import pl.amon.tinymemory.block.ProjectTable;
 import pl.amon.tinymemory.block.entity.ROM;
 import pl.amon.tinymemory.items.MemoryBlueprint;
+import pl.amon.tinymemory.items.ToolTippedBlockItem;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Registration {
@@ -54,7 +54,7 @@ public class Registration {
       BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
         Block block = blockRegistryObject.get();
         Item.Properties properties = new Item.Properties().tab(ModSetup.ITEM_GROUP);
-        Supplier<Item> blockItemFactory = () -> new BlockItem(block, properties);
+        Supplier<Item> blockItemFactory = () -> new ToolTippedBlockItem(block, blockRegistryObject.getId(), properties);
         event.register(ForgeRegistries.Keys.ITEMS, blockRegistryObject.getId(), blockItemFactory);
       });
     }
