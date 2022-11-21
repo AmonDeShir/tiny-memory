@@ -2,7 +2,8 @@
   "parent": "block/cube_all",
   "textures": {
     "base": "tinymemory:blocks/memory_assembler_base",
-    "top": "tinymemory:blocks/memory_assembler"
+    "top": "tinymemory:blocks/memory_assembler",
+    "particle": "#base"
   },
   "elements": [
     {

@@ -3,7 +3,8 @@
   "textures": {
     "side": "tinymemory:blocks/project_table_side",
     "up": "tinymemory:blocks/plate_base",
-    "bottom": "tinymemory:blocks/memory_assembler_base"
+    "bottom": "tinymemory:blocks/memory_assembler_base",
+    "particle": "#bottom"
   },
   "elements": [
     {
