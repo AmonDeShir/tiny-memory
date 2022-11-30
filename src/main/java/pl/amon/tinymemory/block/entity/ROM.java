@@ -13,7 +13,7 @@ import pl.amon.tinymemory.setup.Registration;
 
 public class ROM extends BlockEntity {
   public ROM(BlockPos pos, BlockState state) {
-    super(Registration.ROM_TILE.get(), pos, state);
+    super(Registration.ROM_BLOCK_ENTITY.get(), pos, state);
   }
 
   public static <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {

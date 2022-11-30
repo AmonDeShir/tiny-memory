@@ -1,5 +1,7 @@
 package pl.amon.tinymemory;
 
+import com.mojang.logging.LogUtils;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -9,10 +11,13 @@ import pl.amon.tinymemory.network.ModNetworkHandler;
 import pl.amon.tinymemory.setup.ClientSetup;
 import pl.amon.tinymemory.setup.ModSetup;
 import pl.amon.tinymemory.setup.Registration;
+import org.slf4j.Logger;
 
 @Mod(TinyMemory.MODID)
 public class TinyMemory {
   public static final String MODID = "tinymemory";
+  public static final Logger LOGGER = LogUtils.getLogger();
+
 
     public TinyMemory() {
       Registration.register();

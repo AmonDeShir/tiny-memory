@@ -3,8 +3,10 @@ package pl.amon.tinymemory.network;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.simple.SimpleChannel;
 import pl.amon.tinymemory.TinyMemory;
+import pl.amon.tinymemory.block.entity.ROM;
 
 import com.dannyandson.tinyredstone.blocks.PanelTile;
 import com.dannyandson.tinyredstone.network.PanelCellSync;
@@ -36,9 +38,9 @@ public class ModNetworkHandler {
         .add();
     }
 
-    public static void sendToClient(Object packet, PanelTile panelTile) {
-      BlockPos pos = panelTile.getBlockPos();
-      for (Player player : panelTile.getLevel().players()) {
+    public static void sendToClient(Object packet, BlockEntity entity) {
+      BlockPos pos = entity.getBlockPos();
+      for (Player player : entity.getLevel().players()) {
         if (player instanceof ServerPlayer && player.distanceToSqr(pos.getX(),pos.getY(),pos.getZ()) < 64d) {
           INSTANCE.sendTo(packet, ((ServerPlayer) player).connection.connection, NetworkDirection.PLAY_TO_CLIENT);
         }
