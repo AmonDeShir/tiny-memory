@@ -14,12 +14,15 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import pl.amon.tinymemory.block.entity.ProjectTableBlockEntity;
+import pl.amon.tinymemory.screen.components.IOPort;
 import pl.amon.tinymemory.setup.Registration;
 
 public class ProjectTableMenu extends AbstractContainerMenu {
   public final ProjectTableBlockEntity blockEntity;
+  public final IOPort[] ports = new IOPort[32];
   private final Level level;
   private final ContainerData data;
+
 
   public ProjectTableMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
     this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(ProjectTableBlockEntity.MAX_BITES + 2));
@@ -42,6 +45,11 @@ public class ProjectTableMenu extends AbstractContainerMenu {
     });
 
     addDataSlots(data);
+
+    for (int i = 0; i < ports.length; i++) {
+      ports[i] = new IOPort(i);
+      ports[i].value = i % 2;
+    }
   }
 
   // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
