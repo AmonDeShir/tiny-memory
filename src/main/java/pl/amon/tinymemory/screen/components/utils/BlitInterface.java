@@ -1,4 +1,4 @@
-package pl.amon.tinymemory.screen.components;
+package pl.amon.tinymemory.screen.components.utils;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 

@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import pl.amon.tinymemory.TinyMemory;
-import pl.amon.tinymemory.screen.components.Drawer;
+import pl.amon.tinymemory.screen.components.utils.Drawer;
 
 public class ProjectTableScreen extends AbstractContainerScreen<ProjectTableMenu>{
   private static final ResourceLocation TEXTURE = new ResourceLocation(TinyMemory.MODID, "textures/gui/project_table.png");

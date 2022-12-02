@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 import pl.amon.tinymemory.TinyMemory;
+import pl.amon.tinymemory.screen.components.utils.Drawer;
 
 public class IOPort {
   public int side;
@@ -92,5 +93,9 @@ public class IOPort {
     if ((mouseX >= textX && mouseX < textX + sizeX) && (mouseY >= textY && mouseY < textY + sizeY)) {
       drawer.drawNumber(stack, textX, textY, this.value, true);
     }
+  }
+
+  public interface IOPortUpdate {
+    void onUpdate(int value);
   }
 }
