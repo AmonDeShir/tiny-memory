@@ -75,8 +75,6 @@ public class ProjectTableMenu extends AbstractContainerMenu {
   // THIS YOU HAVE TO DEFINE!
   private static final int TE_INVENTORY_SLOT_COUNT = 1;  // must be the number of slots you have!
 
-
-
   @Override
   public ItemStack quickMoveStack(Player playerIn, int index) {
     Slot sourceSlot = slots.get(index);
