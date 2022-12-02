@@ -1,5 +1,7 @@
 package pl.amon.tinymemory.screen;
 
+import java.util.Arrays;
+
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -12,8 +14,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import pl.amon.tinymemory.block.entity.ProjectTableBlockEntity;
+import pl.amon.tinymemory.screen.components.BlueprintSlot;
 import pl.amon.tinymemory.screen.components.IOPort;
 import pl.amon.tinymemory.setup.Registration;
 
@@ -25,30 +27,33 @@ public class ProjectTableMenu extends AbstractContainerMenu {
 
 
   public ProjectTableMenu(int id, Inventory inv, FriendlyByteBuf extraData) {
-    this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(ProjectTableBlockEntity.MAX_BITES + 2));
+    this(id, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
   }
 
-  public ProjectTableMenu(int id, Inventory inv, BlockEntity entity, ContainerData data) {
+  public ProjectTableMenu(int id, Inventory inv, BlockEntity entity) {
     super(Registration.PROJECT_TABLE_MENU.get(), id);
     
     checkContainerSize(inv, 1);
     blockEntity = (ProjectTableBlockEntity) entity;
 
     this.level = inv.player.level;
-    this.data = data;
+    this.data = new SimpleContainerData(0);
 
     addPlayerInventory(inv);
     addPlayerHotbar(inv);
 
     this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-      this.addSlot(new SlotItemHandler(handler, 0, 17, 17));
+      this.addSlot(new BlueprintSlot(handler, 0, 17, 17));
     });
 
     addDataSlots(data);
 
     for (int i = 0; i < ports.length; i++) {
+      final int index = i;
+
       ports[i] = new IOPort(i);
-      ports[i].value = i % 2;
+      ports[i].value = blockEntity.getPortValue(i);
+      ports[i].onUpdate = (int value) -> blockEntity.setPortValue(index, value);
     }
   }
 
@@ -70,12 +75,18 @@ public class ProjectTableMenu extends AbstractContainerMenu {
   // THIS YOU HAVE TO DEFINE!
   private static final int TE_INVENTORY_SLOT_COUNT = 1;  // must be the number of slots you have!
 
+
+
   @Override
   public ItemStack quickMoveStack(Player playerIn, int index) {
     Slot sourceSlot = slots.get(index);
     if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
     ItemStack sourceStack = sourceSlot.getItem();
     ItemStack copyOfSourceStack = sourceStack.copy();
+
+    if (!sourceSlot.getItem().is(Registration.MEMORY_BLUEPRINT_ITEM.get())) {
+      return ItemStack.EMPTY;
+    }
 
     // Check if the slot clicked is one of the vanilla container slots
     if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
