@@ -1,7 +1,5 @@
 package pl.amon.tinymemory.screen;
 
-import java.util.Arrays;
-
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
