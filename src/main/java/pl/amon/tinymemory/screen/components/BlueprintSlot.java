@@ -8,7 +8,7 @@ import pl.amon.tinymemory.setup.Registration;
 public class BlueprintSlot extends SlotItemHandler {
 
   public BlueprintSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-     super(itemHandler, index, xPosition, yPosition);
+    super(itemHandler, index, xPosition, yPosition);
   }
 
   @Override
