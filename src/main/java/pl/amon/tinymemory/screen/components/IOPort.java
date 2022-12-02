@@ -4,6 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
+import pl.amon.tinymemory.TinyMemory;
 
 public class IOPort {
   public int side;
@@ -14,6 +15,7 @@ public class IOPort {
   public int textY;
   public int value = 0;
   public Button button;
+  public IOPortUpdate onUpdate;
 
   public IOPort (int index) {
     this.side = Math.floorDiv(index, 8);
@@ -25,6 +27,11 @@ public class IOPort {
 
   public void onPress(Button button) {
     this.value = this.value == 1 ? 0 : 1;
+    TinyMemory.LOGGER.info(String.format("Update button IOport, value: %d", this.value));
+    
+    if (this.onUpdate != null) {
+      this.onUpdate.onUpdate(this.value);
+    }
   }
 
   private void pivotFromSide(int leftPos, int topPos) {
